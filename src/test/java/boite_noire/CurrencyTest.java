@@ -19,16 +19,16 @@ public class CurrencyTest {
         Double test6 = Currency.convert(1000001.0, 2.0);
         Double test7 = Currency.convert(1500000.0, 2.0);
 
-        // Valeurs acceptées
-        Assertions.assertEquals(test3, 0.0);
-        Assertions.assertEquals(test4, 1000000.0);
-        Assertions.assertEquals(test5, 2000000.0);
+        Assertions.assertAll(// Valeurs acceptées
+                ()->    Assertions.assertEquals(test3, 0.0),
+                ()->    Assertions.assertEquals(test4, 1000000.0),
+                ()->    Assertions.assertEquals(test5, 2000000.0),
 
-        // Valeurs non acceptées
-        Assertions.assertNotEquals(test1, -200.0);
-        Assertions.assertNotEquals(test2, -2.0);
-        Assertions.assertNotEquals(test6, 2000002.0);
-        Assertions.assertNotEquals(test7, 3000000.0);
+                            // Valeurs non acceptées
+                ()->    Assertions.assertNotEquals(test1, -200.0),
+                ()->    Assertions.assertNotEquals(test2, -2.0),
+                ()->    Assertions.assertNotEquals(test6, 2000002.0),
+                ()->    Assertions.assertNotEquals(test7, 3000000.0));
     }
 
     @Test
